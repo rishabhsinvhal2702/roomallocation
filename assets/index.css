@@ -1,0 +1,339 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    font-size: 62.5%;
+    scroll-behavior: smooth;
+}
+
+body{
+    position: relative;
+    margin: 0%;
+}
+
+.dash{
+    height: 100vh;
+    width: 100%;
+    background-image:linear-gradient(to right , rgba(36, 36, 36, 0.75), rgba(66, 66, 66, 0.75)), url('/static/rkhpic.jpg');
+    /* background-image:linear-gradient(to right , rgba(236, 236, 236, 0.4), rgba(251, 251, 251, 0.4)), url('/static/rkhpic.jpg'); */
+    background-size: cover;
+}
+
+.rkallocation{
+    display: inline-block;
+    transform: translateX(6%) translateY(29%);
+    letter-spacing: 0.21rem;
+    word-spacing: 0.3rem;
+    font-size: 4.4rem;
+    color: rgb(245, 245, 245, 0.9);
+}
+
+.moto{
+    /* color: rgba(236,236,236); */
+    color: rgb(36, 36, 36);
+    font-size: 4.2rem;
+    text-align: center;
+    display: inline-block;
+    width: 56%;
+    position: absolute;
+    left: 50%;
+    border-radius: 1.2rem;
+    padding: 1.4rem;
+    background: rgb(221, 221, 221, 0.51);
+    /* background: rgb(29,29,29,0.21); */
+    transform: translateX(-50%) translateY(81%);
+    word-spacing: 0.9rem;
+    letter-spacing: 0.27rem;
+}
+
+.acc{
+    height: 12%;
+    width: 100%;
+    background-color: rgb(6, 6, 6, 0.4);
+    /* background: blue; */
+}
+
+.acc-ls{
+    position: absolute;
+    font-size: 2.7rem;
+    margin-top: 2.1rem;
+    /* color: rgba(236,236,236); */
+    color: black;
+    font-weight: 600;
+    text-decoration: none;
+    margin-right: 2.9rem;
+    background: whitesmoke;
+    padding: 0.6rem 1.4rem;
+    border-radius: 2.9rem;
+    right: 0%;
+}
+
+.acc-ls:hover{
+    color: whitesmoke;
+    background: rgb(6, 6, 6);
+}
+
+.login{
+    right: 12%;
+}
+.signup{
+    right: 3%;
+}
+
+
+/* SIGNUP FORM  */
+
+.signup-heading{
+    font-size: 3.6rem;
+    text-align: center;
+    margin-bottom: 2.7rem;
+}
+
+.signup-form{
+    background: rgb(236, 236, 236, 0.45);
+    text-align: center;
+    display: inline-block;
+    position: absolute;
+    top: 50%;
+    width: 37rem;
+    left: 50%;
+    transform: translateX(-50%) translateY(-42%);
+    padding: 2.1rem;
+    border-radius: 1.2rem;
+    /* padding-left: 0.1rem; */
+}
+
+.signup-para{
+    display: inline-block;
+}
+
+.signup-field{
+    font-size: 1.6rem;
+    padding-left: 0.6rem;
+    border-radius: 0.3rem;
+    display: inline-block;
+    height: 3.6rem;
+    width: 33rem;
+    margin-bottom: 2.1rem;
+    border: 0.14rem solid black;
+}
+
+.signup-lname{
+    width: 16.21rem;
+    display: inline;
+}
+
+.signup-fname{
+    width: 16.21rem;
+    display: inline;
+}
+
+.logout{
+    color: white;
+    background: red;
+    position: absolute;
+}
+
+.signup-submit-button{
+    height: 4.2rem;
+    font-weight: 600;
+    border: 0.21rem solid black;
+    background: rgb(236, 236, 236, 0.9);
+    color: rgb(27, 27, 27, 0.9);
+    border-radius: 1.2rem;
+    cursor: pointer;
+    width: 9rem;
+    margin-bottom: 0.6rem;
+    font-size: 1.8rem;
+}
+
+.signup-submit-button:hover{
+    background: rgb(27, 27, 27, 0.9);
+    color: rgb(236, 236, 236, 0.9);
+}
+
+/* login form  */
+
+.login-heading{
+    font-size: 3.6rem;
+    text-align: center;
+    margin-bottom: 2.9rem;
+}
+
+.login-form{
+    /* height: 60vh; */
+    background: rgb(236, 236, 236, 0.45);
+    display: inline-block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    padding: 2.1rem;
+    text-align: center;
+    border-radius: 1.2rem;
+}
+
+.login-field{
+    font-size: 1.6rem;
+    padding-left: 0.6rem;
+    border-radius: 0.3rem;
+    display: inline-block;
+    height: 3.6rem;
+    width: 27rem;
+    margin-bottom: 2.9rem;
+    border: 0.14rem solid black;
+}
+
+.login-submit-button{
+    height: 4.5rem;
+    font-weight: 600;
+    border: 0.21rem solid black;
+    background: rgb(236, 236, 236, 0.9);
+    color: rgb(27, 27, 27, 0.9);
+    border-radius: 1.2rem;
+    cursor: pointer;
+    width: 9rem;
+    margin-bottom: 2.1rem;
+    font-size: 2.1rem;
+}
+
+.login-submit-button:hover{
+    background: rgb(27, 27, 27, 0.9);
+    color: rgb(236, 236, 236, 0.9);
+}
+
+
+/* block list  */
+
+.block-list-container{
+    background: rgba(236, 236, 236, 0.45);
+    /* background-color: pink; */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    text-align: center;
+    padding: 2.7rem;
+}
+
+.blockno{
+    font-size: 6.6rem;
+    text-decoration: none;
+    color: black;
+    margin-right: 2.1rem;
+}
+
+.select-block{
+    font-size: 6rem;
+    display: inline-block;
+    margin-bottom: 2.9rem;
+}
+
+.blockdiv{
+    border-radius: 66rem;
+    padding: 0.6rem;
+    text-align: center;
+    display: inline-block;
+    width: 9rem;
+    height: 9rem;
+    background: rgb(236, 236, 236, 0.9);
+    color: rgb(14, 14, 14, 0.9);
+}
+
+.blockdiv:hover{
+    color: rgb(236, 236, 236, 0.9);
+    background: rgb(14, 14, 14, 0.9);
+}
+
+.bdiv{
+    width: 8rem; 
+    height: 8rem; 
+    margin-top: 2.7rem; 
+    margin-right: 0.6rem; 
+    margin-left: 2.1rem;
+}
+
+.floors{
+    display: inline-block;
+    position: absolute;
+    left: 50%;
+    top: 14%;
+    transform: translateX(-50%);
+}
+
+.cont_bl{
+    position: absolute;
+    top: 14%;
+}
+
+.fl_bl{
+    display: inline-block; 
+    font-size: 6rem; 
+    text-align: center;
+    text-decoration: none;
+    width: 8rem; 
+    height: 8rem; 
+    padding-top: 0.6rem;
+    border-radius: 66rem; 
+    margin-right: 6.6rem; 
+    cursor: pointer;
+    background: rgb(236, 236, 236, 0.9);
+    color: rgb(14, 14, 14, 0.9);
+}
+
+.fl_bl:hover{
+    color: rgb(236, 236, 236, 0.9);
+    background: rgb(14, 14, 14, 0.9);
+}
+
+.room-grid{
+    background: rgb(236, 236, 236, 0.45);
+    display: inline-block;
+    position: absolute;
+    top: 56%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    column-gap: 1.4rem;
+    row-gap: 2.7rem;
+    text-align: center;
+    padding: 1.2rem;
+}
+
+.room_no_block{
+    /* background: rgb(255, 255, 255, 0.8); */
+    padding: 1.4rem;
+    cursor: pointer;
+    border-radius: 1.2rem;
+}
+
+.not_alloted:hover{
+    background:rgb(56, 56, 56, 0.75);
+}
+
+.room-div{
+    color: red;
+    background-color: pink;
+    display: inline-block;
+    position: absolute;
+    top: 36%;
+    right: -5.6%;
+    width: 29rem;
+    height: 29rem;
+    transform: translateX(-50%);
+    text-align: center;
+}
+
+.not_alloted{
+    background:rgb(66, 66, 66, 0.75);
+}
+
+.room_nos{
+    font-size: 3.6rem;
+}
+

@@ -1,0 +1,14 @@
+{% extends 'index.html' %}
+
+{% block content %}
+    <div class="block-list-container">
+        <h1 class="select-block">Select Block</h1>
+        <div class="block-nos-container">
+            <a href="{% url 'rooms:block_rooms' block='A' floor='1' %}" class="blockno"><div class="blockdiv">A</div></a>
+            <a href="B/1" class="blockno"><div class="blockdiv">B</div></a>
+            <a href="C/1" class="blockno"><div class="blockdiv">C</div></a>
+            <a href="D/1" class="blockno"><div class="blockdiv">D</div></a>
+            <a href="E/1" class="blockno"><div class="blockdiv">E</div></a>
+        </div>    
+    </div>
+{% endblock %}

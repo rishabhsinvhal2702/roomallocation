@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% load static %}
+<head>
+    <title>RKH Room Allocation</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'index.css' %}">
+</head>
+<body>
+    <div class="dash">
+        <div class="acc">
+            <h1 class="rkallocation">RadhaKrishnan Hall Room Allocation</h1>
+            {% if request.user.is_authenticated %}
+                <!-- {{request.user.rollno}} -->
+                <a href="{% url 'logout' %}" class="acc-ls signup">Logout</a>
+            {% else %}
+                <a href="{% url 'login' %}" class="acc-ls login">Login</a>
+                <a href="{% url 'register' %}" class="acc-ls signup">Signup</a>
+            {% endif %}
+        </div>
+        {% block content %}
+        {% endblock %}
+    </div>
+</body>
+</html>

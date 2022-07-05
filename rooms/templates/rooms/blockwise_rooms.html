@@ -1,0 +1,141 @@
+{% extends 'index.html' %}
+
+{% block content %}
+    <div class="room-container">
+        <div class="cont_bl" style="width: 11rem;">
+            <a href="{% url 'rooms:block_rooms' block='A' floor='1' %}" class="blockno"><div class="blockdiv bdiv">A</div></a>
+            <a href="{% url 'rooms:block_rooms' block='B' floor='1' %}" class="blockno"><div class="blockdiv bdiv">B</div></a>
+            <a href="{% url 'rooms:block_rooms' block='C' floor='1' %}" class="blockno"><div class="blockdiv bdiv">C</div></a>
+            <a href="{% url 'rooms:block_rooms' block='D' floor='1' %}" class="blockno"><div class="blockdiv bdiv">D</div></a>
+            <a href="{% url 'rooms:block_rooms' block='E' floor='1' %}" class="blockno"><div class="blockdiv bdiv">E</div></a>
+        </div>
+
+        <div class="floors">
+            <a href="{% url 'rooms:block_rooms' block=rusers.block floor='1' %}" class="first_floor fl_bl">G</a>
+            <a href="{% url 'rooms:block_rooms' block=rusers.block floor='2' %}" class="second_floor fl_bl">1</a>
+            <a href="{% url 'rooms:block_rooms' block=rusers.block floor='3' %}" class="third_floor fl_bl">2</a>
+            <a href="{% url 'rooms:block_rooms' block=rusers.block floor='4' %}" class="forth_floor fl_bl">3</a>
+        </div>
+
+        <div class="room-grid">
+            {% for bl_room in b_room %}
+                {% if bl_room.is_alloted %}
+                    {% if rusers.user_room == bl_room.room_no %}
+                        <h1 class="room_no_block alloted" onmouseover="display_room('{{bl_room.room_no}}', '{{bl_room.rollno}}', '{{bl_room.name}}')" onmouseout="display_done()" style="background: rgba(79, 255, 117, 0.75);">{{ bl_room.room_no }}</h1>
+                    {% else %}
+                        <h1 class="room_no_block alloted" onmouseover="display_room('{{bl_room.room_no}}', '{{bl_room.rollno}}', '{{bl_room.name}}')" onmouseout="display_done()" style="background: rgba(255, 33, 33, 0.75);">{{ bl_room.room_no }}</h1>
+                    {% endif %}
+                {% else %}
+                    <!-- <h1>{{rusers.roll}}</h1> -->
+                    <h1 class="not_alloted room_no_block" onclick="noalloted('{{bl_room.room_no}}')">{{ bl_room.room_no }}</h1>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+
+    <form class="room-div" >
+        <div class="div-room" id="div-room">
+            <h1 id="room_nos"></h1>
+            <div id="room_rolls"></div>
+            <div id="room_names"></div>
+        </div>
+        {% if rusers.allot %}
+            <a href="#" class="book" style="visibility: hidden; opacity: 0;">You Already Booked A Room</a>
+        {% else %}
+            <span id="book" class="book" style="visibility: hidden; opacity: 0; cursor: pointer;" onclick="clickHandle()">BOOK</span>
+        {% endif %}
+    </form>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script>
+        function display_room(room, roll, name) {
+            let bookbtn =  document.getElementsByClassName("book")[0];
+            bookbtn.style.visibility = "hidden";
+            bookbtn.style.opacity = 0;
+            let myno = document.getElementById("room_nos");
+            let myroll = document.getElementById("room_rolls");
+            let myname = document.getElementById("room_names");
+            myno.style.visibility = "visible";
+            myno.style.opacity = 1;
+            myroll.style.visibility = "visible";
+            myroll.style.opacity = 1;
+            myname.style.visibility = "visible";
+            myname.style.opacity = 1;
+            myno.innerHTML = room;
+            myroll.innerHTML = roll;
+            myname.innerHTML = name;
+        }
+
+        function display_done(){
+            let bookbtn =  document.getElementsByClassName("book")[0];
+            bookbtn.style.visibility = "hidden";
+            bookbtn.style.opacity = 0;
+            let myno = document.getElementById("room_nos");
+            let myroll = document.getElementById("room_rolls");
+            let myname = document.getElementById("room_names");
+            myno.style.visibility = "hidden";
+            myno.style.opacity = 0;
+            myroll.style.visibility = "hidden";
+            myroll.style.opacity = 0;
+            myname.style.visibility = "hidden";
+            myname.style.opacity = 0;
+        }
+
+        // function newfunc(e){
+        //     let roomDiv = document.getElementsByClassName("room-div")[0];
+        //     roomDiv.style.visibility = "visible";
+        //     roomDiv.style.opacity = 1;
+        // }
+
+        function noalloted(room){
+            let bookbtn =  document.getElementsByClassName("book")[0];
+            let myroll = document.getElementById("room_rolls");
+            let myname = document.getElementById("room_names");
+            bookbtn.style.visibility = "visible";
+            bookbtn.style.opacity = 1;
+            myroll.style.visibility = "hidden";
+            myroll.style.opacity = 0;
+            myname.style.visibility = "hidden";
+            myname.style.opacity = 0;
+            let myno = document.getElementById("room_nos");
+            myno.innerHTML = room;
+            myno.style.visibility = "visible";
+            myno.style.opacity = 1;
+        }
+
+        function csrfcookie(name){
+            var cookieValue = null;
+
+            if (document.cookie && document.cookie !== '') {
+                var cookies = document.cookie.split(';');
+                for (var i = 0; i < cookies.length; i++) {
+                    var cookie = cookies[i].trim();
+                    if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                        break;
+                    }
+                }
+            }
+            return cookieValue;
+        };
+        function clickHandle(){
+            let roomnumb = document.getElementById("room_nos").innerHTML;
+            var csrftoken = csrfcookie('csrftoken');
+            $.ajax(
+                {
+                    type : "POST",
+                    url:"{% url 'rooms:block_rooms' block=rusers.block floor=rusers.floor %}",
+                    data:{
+                        room_no:roomnumb,
+                        csrfmiddlewaretoken: csrftoken
+                    },
+                    success:function(data){
+                        window.location.reload()
+                    }
+                }
+            )
+        };
+
+    </script>
+
+{% endblock %}
