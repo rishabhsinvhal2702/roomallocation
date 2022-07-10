@@ -1,6 +1,4 @@
 from email.policy import default
-from enum import Flag
-from tkinter import NO
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
 from sqlalchemy import null
